@@ -67,4 +67,7 @@ public class CouponService {
         }
         return discount;
     }
+    public List<Coupon> getActiveCoupons() {
+    return couponRepository.findActiveCoupons(LocalDate.now());
+}
 }
