@@ -5,6 +5,7 @@ import com.sareehub.service.CouponService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -13,6 +14,11 @@ import java.util.Map;
 public class CouponController {
 
     private final CouponService couponService;
+
+    @GetMapping("/active")
+    public List<Coupon> getActiveCoupons() {
+        return couponService.getActiveCoupons();
+    }
 
     @PostMapping("/validate")
     public Coupon validate(@RequestBody Map<String, Object> body) {
